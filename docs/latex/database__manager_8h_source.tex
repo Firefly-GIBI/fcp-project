@@ -1,0 +1,99 @@
+\doxysection{database\+\_\+manager.\+h}
+\hypertarget{database__manager_8h_source}{}\label{database__manager_8h_source}\index{C:/Users/admin/CLionProjects/banking\_app/include/database\_manager.h@{C:/Users/admin/CLionProjects/banking\_app/include/database\_manager.h}}
+\doxymbox{\hyperlink{database__manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BANKING\_APP\_DATABASE\_MANAGER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BANKING\_APP\_DATABASE\_MANAGER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{accounts_8h}{accounts.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a842dcd58b3d11669859f54450db50baa}{from\_json}}(\textcolor{keyword}{const}\ json\&\ user\_accounts\_database,\ \doxymbox{\hyperlink{class_user}{User}}\&\ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}})\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.user\_id\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_id"{}}];}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.login\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}login"{}}];}
+\DoxyCodeLine{00026\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.owner\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}owner"{}}];}
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.password\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}password"{}}];}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.user\_accounts\_ids\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_accounts\_ids"{}}].get<vector<int>>();}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a99dbf45e40da091a4c5004ff7b2db490}{to\_json}}(json\&\ user\_accounts\_database,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_user}{User}}\&\ user)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_id"{}}]\ =\ user.user\_id;}
+\DoxyCodeLine{00038\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}login"{}}]\ =\ user.login;}
+\DoxyCodeLine{00039\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}owner"{}}]\ =\ user.owner;}
+\DoxyCodeLine{00040\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}password"{}}]\ =\ user.password;}
+\DoxyCodeLine{00041\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_accounts\_ids"{}}]\ =\ user.user\_accounts\_ids;}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a842dcd58b3d11669859f54450db50baa}{from\_json}}(\textcolor{keyword}{const}\ json\&\ accounts\_database,\ \doxymbox{\hyperlink{class_account}{Account}}\&\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}})\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.account\_id\ =\ accounts\_database[\textcolor{stringliteral}{"{}account\_id"{}}];}
+\DoxyCodeLine{00051\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.account\_type\_id\ =\ accounts\_database[\textcolor{stringliteral}{"{}account\_type\_id"{}}];}
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.account\_type\ =\ accounts\_database[\textcolor{stringliteral}{"{}account\_type"{}}];}
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.balance\_int\ =\ accounts\_database[\textcolor{stringliteral}{"{}balance\_int"{}}];}
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.balance\_float\ =\ accounts\_database[\textcolor{stringliteral}{"{}balance\_float"{}}];}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.owner\ =\ accounts\_database[\textcolor{stringliteral}{"{}owner"{}}];}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.owner\_id\ =\ accounts\_database[\textcolor{stringliteral}{"{}owner\_id"{}}];}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.pin\_code\ =\ accounts\_database[\textcolor{stringliteral}{"{}pin\_code"{}}];}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a99dbf45e40da091a4c5004ff7b2db490}{to\_json}}(json\&\ accounts\_database,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_account}{Account}}\&\ account)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}account\_id"{}}]\ =\ account.account\_id;}
+\DoxyCodeLine{00067\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}account\_type\_id"{}}]\ =\ account.account\_type\_id;}
+\DoxyCodeLine{00068\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}account\_type"{}}]\ =\ account.account\_type;}
+\DoxyCodeLine{00069\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}balance\_int"{}}]\ =\ account.balance\_int;}
+\DoxyCodeLine{00070\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}balance\_float"{}}]\ =\ account.balance\_float;}
+\DoxyCodeLine{00071\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}owner"{}}]\ =\ account.owner;}
+\DoxyCodeLine{00072\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}owner\_id"{}}]\ =\ account.owner\_id;}
+\DoxyCodeLine{00073\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}pin\_code"{}}]\ =\ account.pin\_code;}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_ad310332e8f1c17e675c61636e6847a52}{update\_accounts\_database}}()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ json\ accounts\_database;}
+\DoxyCodeLine{00081\ \ \ \ \ accounts\_database[\textcolor{stringliteral}{"{}accounts"{}}]\ =\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}};}
+\DoxyCodeLine{00082\ \ \ \ \ ofstream\ output(\textcolor{stringliteral}{"{}json\_files/accounts.json"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (!output)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}File\ not\ found:\ accounts.json"{}}\ <<\ endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ output\ <<\ accounts\_database.dump(4)\ <<\ endl;}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a332559a0da17b0fc396f7730ae39cc5e}{update\_user\_accounts\_database}}()\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ json\ user\_accounts\_database;}
+\DoxyCodeLine{00094\ \ \ \ \ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_accounts"{}}]\ =\ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}};}
+\DoxyCodeLine{00095\ \ \ \ \ ofstream\ output(\textcolor{stringliteral}{"{}json\_files/user\_accounts.json"{}});}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (!output)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}File\ not\ found:\ user\_accounts.json"{}}\ <<\ endl;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ output\ <<\ user\_accounts\_database.dump(4)\ <<\ endl;}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{database__manager_8h_a904e54029a5a59b1bde48d40fe037b2b}{database\_initialization}}()\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (ifstream\ user\_accounts\_file(\textcolor{stringliteral}{"{}json\_files/user\_accounts.json"{}});\ !user\_accounts\_file.is\_open())\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}File\ not\ found:\ user\_accounts.json"{}}\ <<\ endl;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ json\ user\_accounts\_database;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ user\_accounts\_file\ >>\ user\_accounts\_database;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{::users}}\ =\ user\_accounts\_database[\textcolor{stringliteral}{"{}user\_accounts"{}}];}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (ifstream\ accounts\_file(\textcolor{stringliteral}{"{}json\_files/accounts.json"{}});\ !accounts\_file.is\_open())\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}File\ not\ found:\ accounts.json"{}}\ <<\ endl;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ json\ accounts\_database;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ accounts\_file\ >>\ accounts\_database;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{::accounts}}\ =\ accounts\_database[\textcolor{stringliteral}{"{}accounts"{}}];}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BANKING\_APP\_DATABASE\_MANAGER\_H}}
+
+\end{DoxyCode}

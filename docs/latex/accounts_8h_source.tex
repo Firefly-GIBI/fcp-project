@@ -1,0 +1,82 @@
+\doxysection{accounts.\+h}
+\hypertarget{accounts_8h_source}{}\label{accounts_8h_source}\index{C:/Users/admin/CLionProjects/banking\_app/include/accounts.h@{C:/Users/admin/CLionProjects/banking\_app/include/accounts.h}}
+\doxymbox{\hyperlink{accounts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BANKING\_APP\_ACCOUNTS\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BANKING\_APP\_ACCOUNTS\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }Account\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ account\_id\{\};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ account\_type\_id\{\};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{string}\ account\_type;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ balance\_float\{\};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ balance\_int\{\};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{string}\ owner;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ owner\_id\{\};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{string}\ pin\_code;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ Account()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{inline}\ vector<Account>\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }User\ \{}
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ user\_id\{\};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{string}\ login;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{string}\ owner;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{string}\ password;}
+\DoxyCodeLine{00064\ \ \ \ \ vector<int>\ user\_accounts\_ids;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ User()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{inline}\ vector<User>\ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{inline}\ ostream\&\ \doxymbox{\hyperlink{accounts_8h_a8da8b45675fa4a95e2f44b58008d5482}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_account}{Account}}\&\ account)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ ID:\ "{}}\ <<\ account.account\_id\ <<\ endl;}
+\DoxyCodeLine{00082\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ type\ ID:\ "{}}\ <<\ account.account\_type\_id\ <<\ endl;}
+\DoxyCodeLine{00083\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ type:\ "{}}\ <<\ account.account\_type\ <<\ endl;}
+\DoxyCodeLine{00084\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ balance:\ "{}}\ <<\ account.balance\_int\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<\ account.balance\_float;}
+\DoxyCodeLine{00085\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ owner:\ "{}}\ <<\ account.owner\ <<\ endl;}
+\DoxyCodeLine{00086\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ owner\ ID:\ "{}}\ <<\ account.owner\_id\ <<\ endl;}
+\DoxyCodeLine{00087\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ PIN\ code:\ "{}}\ <<\ account.pin\_code\ <<\ endl\ <<\ endl;;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{inline}\ ostream\&\ \doxymbox{\hyperlink{accounts_8h_a8da8b45675fa4a95e2f44b58008d5482}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_user}{User}}\&\ user)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ User\ ID:\ "{}}\ <<\ user.user\_id\ <<\ endl;}
+\DoxyCodeLine{00096\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Login:\ "{}}\ <<\ user.login\ <<\ endl;}
+\DoxyCodeLine{00097\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Owner:\ "{}}\ <<\ user.owner\ <<\ endl;}
+\DoxyCodeLine{00098\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}-\/\ Password:\ "{}}\ <<\ user.password\ <<\ endl;}
+\DoxyCodeLine{00099\ \ \ \ \ os\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}-\/\ Your\ bank\ accounts:\ "{}}\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ user\_index\ =\ 0;\ user\_index\ <\ user.user\_accounts\_ids.size();\ user\_index++)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ account\_id\ =\ user.user\_accounts\_ids[user\_index];}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ database\_index\ =\ 0;\ database\_index\ <\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.size();\ database\_index++)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[database\_index].account\_id\ ==\ account\_id)\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ user\_index\ +\ 1\ <<\ \textcolor{stringliteral}{"{}]\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ type:\ "{}}\ <<\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[database\_index].account\_type\ <<\ endl;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Account\ balance:\ "{}}\ <<\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[database\_index].balance\_int\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[database\_index].balance\_float\ <<\ endl;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BANKING\_APP\_ACCOUNTS\_H}}
+
+\end{DoxyCode}

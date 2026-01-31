@@ -1,0 +1,196 @@
+\doxysection{deposit\+\_\+and\+\_\+withdraw\+\_\+handler.\+h}
+\hypertarget{deposit__and__withdraw__handler_8h_source}{}\label{deposit__and__withdraw__handler_8h_source}\index{C:/Users/admin/CLionProjects/banking\_app/include/deposit\_and\_withdraw\_handler.h@{C:/Users/admin/CLionProjects/banking\_app/include/deposit\_and\_withdraw\_handler.h}}
+\doxymbox{\hyperlink{deposit__and__withdraw__handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BANKING\_APP\_WITHDRAW\_AND\_DEPOSIT\_HANDLER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BANKING\_APP\_WITHDRAW\_AND\_DEPOSIT\_HANDLER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{deposit__and__withdraw__handler_8h_a7ecf0c7fe4ce578bb6e08804f4610d11}{deposit}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ account\_database\_index)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{string}\ deposit\_amount\_int\_part;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{string}\ deposit\_amount\_float\_part;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ invalid\_deposit\_amount;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ declared\_deposit\_amount\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ deposit\_amount\_int\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ deposit\_amount\_float\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ current\_balance\_int\ =\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ current\_balance\_float\ =\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ current\_amount\ =\ stof(to\_string(current\_balance\_int)\ +\ \textcolor{stringliteral}{"{}."{}}\ +\ to\_string(current\_balance\_float));}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}How\ much\ do\ you\ want\ to\ deposit?"{}}\ <<\ endl;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Current\ amount:\ "{}}\ <<\ current\_amount\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ invalid\_deposit\_amount\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_floating\_points\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ getline(cin,\ declared\_deposit\_amount);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ character\_index\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ floating\_point\_index\ =\ 100;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ character\ :\ declared\_deposit\_amount)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ for\ floating\ points\ and\ allows\ for\ only\ 1}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\ ==\ \textcolor{charliteral}{'.'}\ or\ character\ ==\ \textcolor{charliteral}{','})\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\_of\_floating\_points\ ++;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (number\_of\_floating\_points\ <=\ 1)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ floating\_point\_index\ =\ character\_index;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ declared\_deposit\_amount[character\_index]\ =\ \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There's\ no\ need\ for\ checking\ rest\ of\ the\ loop\ if\ the\ character\ is\ a\ floating\ point,}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ so\ we\ skip\ it.}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_index++;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ only\ checks\ 2\ digits\ after\ the\ floating\ point}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\_index\ >\ floating\_point\_index\ +\ 2)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ for\ any\ invalid\ characters\ (other\ than\ numbers\ and\ 1\ floating\ point)}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isdigit(character))\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ character."{}}\ <<\ endl;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_deposit\_amount\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ if\ the\ character\ is\ still\ a\ natural\ number\ or\ already\ a\ floating\ point}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\_index\ >\ floating\_point\_index)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ deposit\_amount\_float\_part\ +=\ character;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ deposit\_amount\_int\_part\ +=\ character;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ character\_index++;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{while}\ (invalid\_deposit\_amount);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ If\ user's\ input\ was\ only\ integer\ part,\ assume\ floating\ point\ is\ just\ 0.}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (deposit\_amount\_float\_part.empty())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ deposit\_amount\_float\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Deposit\ amount:\ "{}}\ <<\ stoi(deposit\_amount\_int\_part)\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ stoi(deposit\_amount\_float\_part)\ <<\ endl;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ +=\ stoi(deposit\_amount\_int\_part);}
+\DoxyCodeLine{00090\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ +=\ stoi(deposit\_amount\_float\_part);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ >=\ 100)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ -\/=\ 100;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ +=\ 1;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Current\ amount\ is:\ "{}}\ <<\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ <<\ endl;}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{deposit__and__withdraw__handler_8h_a9af6a8c624927d7b0659e7258196ec19}{withdraw}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ account\_database\_index)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{string}\ withdraw\_amount\_int\_part;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{string}\ withdraw\_amount\_float\_part;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ invalid\_withdraw\_amount;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ declared\_withdraw\_amount\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ withdraw\_amount\_int\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ withdraw\_amount\_float\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ current\_balance\_int\ =\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ current\_balance\_float\ =\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ current\_amount\ =\ stof(to\_string(current\_balance\_int)\ +\ \textcolor{stringliteral}{"{}."{}}\ +\ to\_string(current\_balance\_float));}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_amount\ <=\ 0)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}You\ have\ no\ money\ to\ withdraw."{}}\ <<\ endl;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}How\ much\ do\ you\ want\ to\ withdraw?"{}}\ <<\ endl;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Current\ amount:\ "{}}\ <<\ current\_amount\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ invalid\_withdraw\_amount\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_floating\_points\ =\ 0;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ getline(cin,\ declared\_withdraw\_amount);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ character\_index\ =\ 0;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ floating\_point\_index\ =\ 100;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ character\ :\ declared\_withdraw\_amount)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ for\ floating\ points\ and\ allows\ for\ only\ 1}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\ ==\ \textcolor{charliteral}{'.'}\ or\ character\ ==\ \textcolor{charliteral}{','})\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\_of\_floating\_points\ ++;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (number\_of\_floating\_points\ <=\ 1)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ floating\_point\_index\ =\ character\_index;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ declared\_withdraw\_amount[character\_index]\ =\ \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There's\ no\ need\ for\ checking\ rest\ of\ the\ loop\ if\ the\ character\ is\ a\ floating\ point,}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ so\ we\ skip\ it.}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character\_index++;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ only\ checks\ 2\ digits\ after\ the\ floating\ point}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\_index\ >\ floating\_point\_index\ +\ 2)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ for\ any\ invalid\ characters\ (other\ than\ numbers\ and\ 1\ floating\ point)}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isdigit(character))\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ character."{}}\ <<\ endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_withdraw\_amount\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Program\ checks\ if\ the\ character\ is\ still\ a\ natural\ number\ or\ already\ a\ floating\ point}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (character\_index\ >\ floating\_point\_index)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ withdraw\_amount\_float\_part\ +=\ character;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ withdraw\_amount\_int\_part\ +=\ character;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ character\_index++;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stof(withdraw\_amount\_int\_part\ +\ \textcolor{stringliteral}{"{}."{}}\ +\ withdraw\_amount\_float\_part)\ >\ current\_amount)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}There\ isn't\ enough\ money\ on\ account\ for\ such\ amount"{}}\ <<\ endl;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_withdraw\_amount\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{while}\ (invalid\_withdraw\_amount);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ If\ user's\ input\ was\ only\ integer\ part,\ assume\ floating\ point\ is\ just\ 0.}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{if}\ (withdraw\_amount\_float\_part.empty())\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ withdraw\_amount\_float\_part\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Withdraw\ amount:\ "{}}\ <<\ stoi(withdraw\_amount\_int\_part)\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ stoi(withdraw\_amount\_float\_part)\ <<\ endl;}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ -\/=\ stoi(withdraw\_amount\_int\_part);}
+\DoxyCodeLine{00191\ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ -\/=\ stoi(withdraw\_amount\_float\_part);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ <\ 0)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ +=\ 100;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ -\/=\ 1;}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Current\ amount\ is:\ "{}}\ <<\ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_int\ <<\ \textcolor{stringliteral}{"{}."{}}\ <<}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}[account\_database\_index].balance\_float\ <<\ endl;}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BANKING\_APP\_WITHDRAW\_AND\_DEPOSIT\_HANDLER\_H}}
+
+\end{DoxyCode}

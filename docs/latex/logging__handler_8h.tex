@@ -1,0 +1,65 @@
+\doxysection{C:\+/\+\+Users/\+admin/\+\+CLion\+Projects/\+banking\+\_\+app/\+include/\+logging\+\_\+handler.h File Reference}
+\hypertarget{logging__handler_8h}{}\label{logging__handler_8h}\index{C:/Users/admin/CLionProjects/banking\_app/include/logging\_handler.h@{C:/Users/admin/CLionProjects/banking\_app/include/logging\_handler.h}}
+
+
+File handling logging in, logging out and submenus available for logged-\/in users.  
+
+
+{\ttfamily \+\#include "{}accounts.\+h"{}}\newline
+{\ttfamily \+\#include "{}database\+\_\+manager.\+h"{}}\newline
+{\ttfamily \+\#include "{}choosing\+\_\+operation.\+h"{}}\newline
+{\ttfamily \+\#include "{}deposit\+\_\+and\+\_\+withdraw\+\_\+handler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{logging__handler_8h_ae1fe13f669414421c19eff765951851d}\label{logging__handler_8h_ae1fe13f669414421c19eff765951851d} 
+void {\bfseries log\+\_\+in\+\_\+to\+\_\+user} ()
+\begin{DoxyCompactList}\small\item\em Function handles logging in to the user account. \end{DoxyCompactList}\item 
+\Hypertarget{logging__handler_8h_ac83fb6c3a1ec08d7ff15fedfdbf18aad}\label{logging__handler_8h_ac83fb6c3a1ec08d7ff15fedfdbf18aad} 
+void {\bfseries check\+\_\+my\+\_\+accounts} ()
+\begin{DoxyCompactList}\small\item\em Function displays all the user\textquotesingle{}s accounts. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{logging__handler_8h_a5b9afbe44cf658b94ba328166dc93216}{account\+\_\+balance\+\_\+management}} (const int account\+\_\+database\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Function handles balance management submenu. \end{DoxyCompactList}\item 
+\Hypertarget{logging__handler_8h_abcfcdf81c00065c667e00892b736da07}\label{logging__handler_8h_abcfcdf81c00065c667e00892b736da07} 
+void {\bfseries accounts\+\_\+management} ()
+\begin{DoxyCompactList}\small\item\em Function handles accounts management submenu. \end{DoxyCompactList}\item 
+\Hypertarget{logging__handler_8h_a444642b878653ee7e779baeb18997648}\label{logging__handler_8h_a444642b878653ee7e779baeb18997648} 
+void {\bfseries log\+\_\+out} ()
+\begin{DoxyCompactList}\small\item\em Function handles logging out of the logged-\/in user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{logging__handler_8h_afab0bd2ffdafb63c6faea6bcfd27b24e}\label{logging__handler_8h_afab0bd2ffdafb63c6faea6bcfd27b24e} 
+int {\bfseries logged\+\_\+in\+\_\+user\+\_\+account\+\_\+id} = 0
+\begin{DoxyCompactList}\small\item\em 8-\/digit ID of user\textquotesingle{}s account. \end{DoxyCompactList}\item 
+\Hypertarget{logging__handler_8h_ab1905f8e93c06a353630b9e08324d5fa}\label{logging__handler_8h_ab1905f8e93c06a353630b9e08324d5fa} 
+int {\bfseries logged\+\_\+in\+\_\+user\+\_\+database\+\_\+id} = 0
+\begin{DoxyCompactList}\small\item\em ID of the logged-\/in user account in the C++ vector to easily find its database entry and modify it. \end{DoxyCompactList}\item 
+\Hypertarget{logging__handler_8h_a619bbbfa8a68c9b55622aeae13adc858}\label{logging__handler_8h_a619bbbfa8a68c9b55622aeae13adc858} 
+string {\bfseries logged\+\_\+in\+\_\+user\+\_\+account\+\_\+owner} = "{}Error"{}
+\begin{DoxyCompactList}\small\item\em Owner of the logged-\/in user account (for example "{}\+John Smith"{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File handling logging in, logging out and submenus available for logged-\/in users. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{logging__handler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{logging__handler_8h_a5b9afbe44cf658b94ba328166dc93216}\index{logging\_handler.h@{logging\_handler.h}!account\_balance\_management@{account\_balance\_management}}
+\index{account\_balance\_management@{account\_balance\_management}!logging\_handler.h@{logging\_handler.h}}
+\doxysubsubsection{\texorpdfstring{account\_balance\_management()}{account\_balance\_management()}}
+{\footnotesize\ttfamily \label{logging__handler_8h_a5b9afbe44cf658b94ba328166dc93216} 
+void account\+\_\+balance\+\_\+management (\begin{DoxyParamCaption}\item[{const int}]{account\+\_\+database\+\_\+index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function handles balance management submenu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+\_\+database\+\_\+index} & ID of the account in the C++ vector to easily find its database entry and use, or modify it. \\
+\hline
+\end{DoxyParams}

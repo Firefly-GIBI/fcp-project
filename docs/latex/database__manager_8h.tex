@@ -1,0 +1,115 @@
+\doxysection{C:\+/\+\+Users/\+admin/\+\+CLion\+Projects/\+banking\+\_\+app/\+include/\+database\+\_\+manager.h File Reference}
+\hypertarget{database__manager_8h}{}\label{database__manager_8h}\index{C:/Users/admin/CLionProjects/banking\_app/include/database\_manager.h@{C:/Users/admin/CLionProjects/banking\_app/include/database\_manager.h}}
+
+
+File managing database (initializing, updating and converting between JSON database and C++ vector).  
+
+
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include "{}accounts.\+h"{}}\newline
+{\ttfamily \+\#include "{}json.\+hpp"{}}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{database__manager_8h_ab701e3ac61a85b337ec5c1abaad6742d}\label{database__manager_8h_ab701e3ac61a85b337ec5c1abaad6742d} 
+using {\bfseries json} = nlohmann::\+json
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{database__manager_8h_a842dcd58b3d11669859f54450db50baa}{from\+\_\+json}} (const json \&user\+\_\+accounts\+\_\+database, \doxymbox{\hyperlink{class_user}{User}} \&\doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}})
+\begin{DoxyCompactList}\small\item\em Function converts user accounts from the JSON database to the C++ vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{database__manager_8h_a99dbf45e40da091a4c5004ff7b2db490}{to\+\_\+json}} (json \&user\+\_\+accounts\+\_\+database, const \doxymbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Function converts user accounts from the C++ vector to the JSON database. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{database__manager_8h_a270816f28f9f1dfd3befb11f946f7429}{from\+\_\+json}} (const json \&accounts\+\_\+database, \doxymbox{\hyperlink{class_account}{Account}} \&\doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}})
+\begin{DoxyCompactList}\small\item\em Function converts accounts from the JSON database to the C++ vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{database__manager_8h_a030ae43cb1044534f69f1048e5589768}{to\+\_\+json}} (json \&accounts\+\_\+database, const \doxymbox{\hyperlink{class_account}{Account}} \&account)
+\begin{DoxyCompactList}\small\item\em Function converts accounts from the C++ vector to the JSON database. \end{DoxyCompactList}\item 
+\Hypertarget{database__manager_8h_ad310332e8f1c17e675c61636e6847a52}\label{database__manager_8h_ad310332e8f1c17e675c61636e6847a52} 
+void {\bfseries update\+\_\+accounts\+\_\+database} ()
+\begin{DoxyCompactList}\small\item\em Function updates the accounts JSON database. \end{DoxyCompactList}\item 
+\Hypertarget{database__manager_8h_a332559a0da17b0fc396f7730ae39cc5e}\label{database__manager_8h_a332559a0da17b0fc396f7730ae39cc5e} 
+void {\bfseries update\+\_\+user\+\_\+accounts\+\_\+database} ()
+\begin{DoxyCompactList}\small\item\em Function updates the user accounts JSON database. \end{DoxyCompactList}\item 
+\Hypertarget{database__manager_8h_a904e54029a5a59b1bde48d40fe037b2b}\label{database__manager_8h_a904e54029a5a59b1bde48d40fe037b2b} 
+void {\bfseries database\+\_\+initialization} ()
+\begin{DoxyCompactList}\small\item\em Function initializes the JSON database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File managing database (initializing, updating and converting between JSON database and C++ vector). 
+
+
+
+\label{doc-func-members}
+\Hypertarget{database__manager_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{database__manager_8h_a270816f28f9f1dfd3befb11f946f7429}\index{database\_manager.h@{database\_manager.h}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!database\_manager.h@{database\_manager.h}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{database__manager_8h_a270816f28f9f1dfd3befb11f946f7429} 
+void from\+\_\+json (\begin{DoxyParamCaption}\item[{const json \&}]{accounts\+\_\+database}{, }\item[{\doxymbox{\hyperlink{class_account}{Account}} \&}]{accounts}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function converts accounts from the JSON database to the C++ vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accounts\+\_\+database} & JSON database of accounts. \\
+\hline
+{\em \doxylink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}} & C++ vector of accounts. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{database__manager_8h_a842dcd58b3d11669859f54450db50baa}\index{database\_manager.h@{database\_manager.h}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!database\_manager.h@{database\_manager.h}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{database__manager_8h_a842dcd58b3d11669859f54450db50baa} 
+void from\+\_\+json (\begin{DoxyParamCaption}\item[{const json \&}]{user\+\_\+accounts\+\_\+database}{, }\item[{\doxymbox{\hyperlink{class_user}{User}} \&}]{users}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function converts user accounts from the JSON database to the C++ vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+\_\+accounts\+\_\+database} & JSON database of user accounts. \\
+\hline
+{\em \doxylink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}} & C++ vector of user accounts. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{database__manager_8h_a030ae43cb1044534f69f1048e5589768}\index{database\_manager.h@{database\_manager.h}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!database\_manager.h@{database\_manager.h}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{database__manager_8h_a030ae43cb1044534f69f1048e5589768} 
+void to\+\_\+json (\begin{DoxyParamCaption}\item[{json \&}]{accounts\+\_\+database}{, }\item[{const \doxymbox{\hyperlink{class_account}{Account}} \&}]{account}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function converts accounts from the C++ vector to the JSON database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accounts\+\_\+database} & JSON database of accounts. \\
+\hline
+{\em account} & Each single account converted one by one to the C++ vector. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{database__manager_8h_a99dbf45e40da091a4c5004ff7b2db490}\index{database\_manager.h@{database\_manager.h}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!database\_manager.h@{database\_manager.h}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{database__manager_8h_a99dbf45e40da091a4c5004ff7b2db490} 
+void to\+\_\+json (\begin{DoxyParamCaption}\item[{json \&}]{user\+\_\+accounts\+\_\+database}{, }\item[{const \doxymbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function converts user accounts from the C++ vector to the JSON database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+\_\+accounts\+\_\+database} & JSON database of user accounts. \\
+\hline
+{\em user} & Each single user account converted one by one to the C++ vector. \\
+\hline
+\end{DoxyParams}

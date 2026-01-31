@@ -1,0 +1,25 @@
+{
+    "user_accounts": [
+        {
+            "login": "error",
+            "owner": "Error",
+            "password": "error",
+            "user_accounts_ids": [
+                0
+            ],
+            "user_id": 0
+        },
+        {
+            "login": "johnsmith",
+            "owner": "John Smith",
+            "password": "adad",
+            "user_accounts_ids": [
+                27937185,
+                27481928,
+                27913675,
+                83761161
+            ],
+            "user_id": 18534827
+        }
+    ]
+}

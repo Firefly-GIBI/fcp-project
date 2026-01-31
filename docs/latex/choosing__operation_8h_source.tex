@@ -1,0 +1,46 @@
+\doxysection{choosing\+\_\+operation.\+h}
+\hypertarget{choosing__operation_8h_source}{}\label{choosing__operation_8h_source}\index{C:/Users/admin/CLionProjects/banking\_app/include/choosing\_operation.h@{C:/Users/admin/CLionProjects/banking\_app/include/choosing\_operation.h}}
+\doxymbox{\hyperlink{choosing__operation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BANKING\_APP\_CHOOSING\_OPERATION\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BANKING\_APP\_CHOOSING\_OPERATION\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{choosing__operation_8h_a63d5a26763054cdd80f76effc25ee1bc}{choosing\_operation}}()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ declared\_operation;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ actual\_operation\ =\ 0;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ getline(std::cin,\ declared\_operation);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (declared\_operation\ ==\ \textcolor{stringliteral}{"{}y"{}})\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ declared\_operation\ =\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (declared\_operation\ ==\ \textcolor{stringliteral}{"{}n"{}})\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ declared\_operation\ =\ \textcolor{stringliteral}{"{}2"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (isdigit(declared\_operation[0]))\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ actual\_operation\ =\ declared\_operation[0];}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 48\ is\ ASCII\ offset}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ actual\_operation\ =\ 48;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ 48\ is\ ASCII\ offset}}
+\DoxyCodeLine{00042\ \ \ \ \ actual\_operation\ -\/=\ 48;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ actual\_operation;}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BANKING\_APP\_CHOOSING\_OPERATION\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,64 @@
+{
+    "accounts": [
+        {
+            "account_id": 0,
+            "account_type": "Error",
+            "account_type_id": 0,
+            "balance_float": 0,
+            "balance_int": 0,
+            "owner": "Error",
+            "owner_id": 0,
+            "pin_code": "0000"
+        },
+        {
+            "account_id": 27937185,
+            "account_type": "Personal",
+            "account_type_id": 1,
+            "balance_float": 70,
+            "balance_int": 3984,
+            "owner": "John Smith",
+            "owner_id": 18534827,
+            "pin_code": "7381"
+        },
+        {
+            "account_id": 27481928,
+            "account_type": "Savings",
+            "account_type_id": 2,
+            "balance_float": 27,
+            "balance_int": 996710908,
+            "owner": "John Smith",
+            "owner_id": 18534827,
+            "pin_code": "1829"
+        },
+        {
+            "account_id": 27913675,
+            "account_type": "Credit card",
+            "account_type_id": 3,
+            "balance_float": 12,
+            "balance_int": 1079,
+            "owner": "John Smith",
+            "owner_id": 18534827,
+            "pin_code": "3812"
+        },
+        {
+            "account_id": 83761161,
+            "account_type": "Loan",
+            "account_type_id": 4,
+            "balance_float": 37,
+            "balance_int": -5000,
+            "owner": "John Smith",
+            "owner_id": 18534827,
+            "pin_code": "1928"
+        },
+        {
+            "account_id": 15400512,
+            "account_type": "Loan",
+            "account_type_id": 4,
+            "balance_float": 90,
+            "balance_int": 2379,
+            "owner": "John Smith",
+            "owner_id": 18534827,
+            "pin_code": "1235"
+        }
+    ]
+}

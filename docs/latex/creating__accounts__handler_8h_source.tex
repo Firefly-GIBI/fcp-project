@@ -1,0 +1,105 @@
+\doxysection{creating\+\_\+accounts\+\_\+handler.\+h}
+\hypertarget{creating__accounts__handler_8h_source}{}\label{creating__accounts__handler_8h_source}\index{C:/Users/admin/CLionProjects/banking\_app/include/creating\_accounts\_handler.h@{C:/Users/admin/CLionProjects/banking\_app/include/creating\_accounts\_handler.h}}
+\doxymbox{\hyperlink{creating__accounts__handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BANKING\_APP\_CREATING\_ACCOUNTS\_HANDLER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BANKING\_APP\_CREATING\_ACCOUNTS\_HANDLER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{accounts_8h}{accounts.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{logging__handler_8h}{logging\_handler.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{database__manager_8h}{database\_manager.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{creating__accounts__handler_8h_a70e5023d473c0d5b058a6a0408ab48aa}{create\_user}}()\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{logging__handler_8h_afab0bd2ffdafb63c6faea6bcfd27b24e}{logged\_in\_user\_account\_id}})\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_user}{User}}\ new\_user;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ user\ account\ owner:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ getline(cin,\ new\_user.owner);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ user\ account\ password:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ getline(cin,\ new\_user.password);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ user\ account\ login:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ getline(cin,\ new\_user.login);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ new\_user.user\_id\ =\ rand()\ \%\ 99999999\ +\ 11111111;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}.push\_back(new\_user);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{database__manager_8h_a332559a0da17b0fc396f7730ae39cc5e}{update\_user\_accounts\_database}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Log\ out\ first!"{}}\ <<\ endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{creating__accounts__handler_8h_aab4953cf45e17cab49f4cdca307abb9c}{create\_account}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{logging__handler_8h_afab0bd2ffdafb63c6faea6bcfd27b24e}{logged\_in\_user\_account\_id}})\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_account}{Account}}\ new\_account;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ invalid\_operation\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ account\ type:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ Personal\ account"{}}\ <<\ endl;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ Savings\ account"{}}\ <<\ endl;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[3]\ -\/\ Credit\ card\ account"{}}\ <<\ endl;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[4]\ -\/\ Loan"{}}\ <<\ endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\doxymbox{\hyperlink{choosing__operation_8h_a63d5a26763054cdd80f76effc25ee1bc}{choosing\_operation}}())\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ operation.\ Try\ again."{}}\ <<\ endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_operation\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\_id\ =\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\ =\ \textcolor{stringliteral}{"{}Personal"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_operation\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\_id\ =\ 2;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\ =\ \textcolor{stringliteral}{"{}Savings"{}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_operation\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\_id\ =\ 3;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\ =\ \textcolor{stringliteral}{"{}Credit\ card"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_operation\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\_id\ =\ 4;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_account.account\_type\ =\ \textcolor{stringliteral}{"{}Loan"{}};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invalid\_operation\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (invalid\_operation);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ new\_account.owner\ =\ \doxymbox{\hyperlink{logging__handler_8h_a619bbbfa8a68c9b55622aeae13adc858}{logged\_in\_user\_account\_owner}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ account\ PIN\ code:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ getline(cin,\ new\_account.pin\_code);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ new\_account.account\_id\ =\ rand()\ \%\ 99999999\ +\ 11111111;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ new\_account.owner\_id\ =\ \doxymbox{\hyperlink{logging__handler_8h_afab0bd2ffdafb63c6faea6bcfd27b24e}{logged\_in\_user\_account\_id}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ new\_account.balance\_int\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ new\_account.balance\_float\ =\ 0;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a74bbfc7974dbc5e0f236218a94304630}{accounts}}.push\_back(new\_account);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{accounts_8h_a99ca3903a33c7cd9a57c4e0b402ee5b2}{users}}[\doxymbox{\hyperlink{logging__handler_8h_ab1905f8e93c06a353630b9e08324d5fa}{logged\_in\_user\_database\_id}}].user\_accounts\_ids.push\_back(new\_account.account\_id);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{database__manager_8h_ad310332e8f1c17e675c61636e6847a52}{update\_accounts\_database}}();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{database__manager_8h_a332559a0da17b0fc396f7730ae39cc5e}{update\_user\_accounts\_database}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ account\ id:\ "{}}\ <<\ new\_account.account\_id\ <<\ endl;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ account\ type:\ "{}}\ <<\ new\_account.account\_type\ <<\ endl;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ account\ owner:\ "{}}\ <<\ new\_account.owner\ <<\ endl;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ account\ PIN\ code:\ "{}}\ <<\ new\_account.pin\_code\ <<\ endl;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}You\ are\ not\ logged\ in!"{}}\ <<\ endl;}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BANKING\_APP\_CREATING\_ACCOUNTS\_HANDLER\_H}}
+
+\end{DoxyCode}
